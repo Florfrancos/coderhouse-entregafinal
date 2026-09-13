@@ -1,0 +1,11 @@
+@use "../utilities/mixins" as *;
+@use "../utilities/variables" as *;
+
+footer {
+  background: linear-gradient(to bottom, $colorFondo, $colornavbar);;
+  color: $colorTextoSecundario;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

@@ -1,0 +1,90 @@
+@use "../utilities/mixins" as *;
+@use "../utilities/variables" as *;
+
+%modogrilla {
+  align-items: center;
+  padding: $espaciadobase;
+  margin: $espaciadobase;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  gap: $espaciadobase;
+
+  @include tabletUp {
+    grid-template-columns: 1fr 1fr;
+    gap: $espaciadobase * 5;
+    margin: $espaciadobase * 2;
+  }
+
+  @include desktopUp {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: $espaciadobase * 10;
+    margin: $espaciadobase * 3;
+  }
+}
+
+%modolinks {
+  text-align: center;
+  font-family: $fontRoboto;
+  font-size: $fuentelinks + 5px;
+  color: $colorTextoSecundario;
+  padding: 0.5rem;
+  align-items: center;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+%modotarjetas {
+  height: auto;
+  width: auto;
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "imagen"
+    "texto";
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  img {
+    grid-area: imagen;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .card-body {
+    grid-area: texto;
+    text-align: center;
+  }
+
+  .link-categoria {
+    @extend %modolinks;
+  }
+}
+
+.categorias-inicio {
+  @extend %modogrilla;
+}
+
+.card {
+  @extend %modotarjetas;
+}
+
+.comidas {
+  @extend %modogrilla;
+}
+
+.card-comida {
+  @extend %modotarjetas;
+}
+
+h3 {
+  @extend %modolinks;
+}

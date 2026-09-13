@@ -1,0 +1,43 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+
+.navbar {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  .navbar-brand img {
+    width: 70px;
+    height: auto;
+  }
+
+  .navbar-nav {
+    gap: 1.5rem;
+
+    .nav-link {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+      color: $colorTextoSecundario;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // en desktop: logo arriba, menú abajo, todo centrado
+  @include desktopUp {
+    flex-direction: column;
+
+    .container-fluid {
+      flex-direction: column;
+    }
+
+    .navbar-brand img {
+      width: 90px;
+      margin-bottom: 0.5rem;
+    }
+  }
+}

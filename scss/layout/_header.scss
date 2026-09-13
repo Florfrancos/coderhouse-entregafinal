@@ -1,0 +1,12 @@
+@use "../utilities/mixins" as *;
+@use "../utilities/variables" as *;
+
+header {
+  background: linear-gradient(to bottom, $colornavbar, $colorFondo);
+  width: 100%;
+
+  .navbar-brand img {
+    width: 50px;
+    height: auto;
+  }
+}

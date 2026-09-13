@@ -1,0 +1,109 @@
+@use "../utilities/mixins" as *;
+@use "../utilities/variables" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+main {
+  flex: 1;
+}
+
+body {
+  background-color: $colorFondo;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.banner {
+  width: 100%;
+  height: 20vw;
+  min-height: 150px;
+  max-height: 400px;
+  overflow: hidden;
+  border: 1px solid $colorTextoSecundario;
+  
+
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+h1 {
+  font-family: $fontRoboto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  color: $colorh1;
+}
+
+h1.animate__animated,
+h2.animate__animated,
+p.animate__animated,
+img.animate__animated {
+  animation-duration: 1s !important;
+}
+
+h2 {
+  font-family: $fontLato;
+  padding: $espaciadobase;
+  color: $colorh1;
+  margin: $espaciadobase * 3;
+}
+
+h3 {
+  font-family: $fontLato;
+  align-items: center;
+  font-size: $fuentetextosecundario * 2;
+}
+
+.sobre-mi {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "texto"
+    "imagen";
+  gap: $espaciadobase * 2;
+
+  @include tabletUp {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "texto"
+      "imagen";
+  }
+
+  @include desktopUp {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "texto imagen";
+    align-items: center;
+  }
+
+  p {
+    grid-area: texto;
+    font-family: $fontLato;
+    font-size: $fuentelinks + 4;
+    margin: $espaciadobase * 2;
+  }
+
+  img {
+    grid-area: imagen;
+    width: 400px;
+    height: auto;
+    object-fit: cover;
+    object-position: right;
+    margin: $espaciadobase;
+    justify-self: center;
+    align-self: center;
+  }
+}
